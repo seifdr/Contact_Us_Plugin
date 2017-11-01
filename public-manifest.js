@@ -1,1 +1,1 @@
-//= include ../pubic/js/wp-contact-us-public.js
+//= include public/js/wp-contact-us-public.js
