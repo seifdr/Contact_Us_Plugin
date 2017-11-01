@@ -1,0 +1,37 @@
+{
+  "name": "wp-contact-us",
+  "version": "1.0.0",
+  "description": "=== Plugin Name === Contributors: (this should be a list of wordpress.org userid's) Donate link: www.testerson.com Tags: comments, spam Requires at least: 3.0.1 Tested up to: 3.4 Stable tag: 4.3 License: GPLv2 or later License URI: http://www.gnu.org/licenses/gpl-2.0.html",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seifdr/Contact_Us_Plugin.git"
+  },
+  "author": "Duncan Seif",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seifdr/Contact_Us_Plugin/issues"
+  },
+  "homepage": "https://github.com/seifdr/Contact_Us_Plugin#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "critical": "^0.9.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-imageoptim": "^1.0.9",
+    "gulp-include": "^2.3.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-watch": "^4.3.11",
+    "gulp-zip": "^4.0.0",
+    "jshint": "^2.9.5",
+    "jshint-stylish": "^2.2.1"
+  }
+}
