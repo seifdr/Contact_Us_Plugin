@@ -127,7 +127,7 @@ gulp.task('sass-public', function() {
         .pipe(plumber())
         .pipe(sass(options.sass).on('error', sass.logError))
         .pipe(autoprefixer())
-        .pipe(gulp.dest('.'))
+        .pipe(gulp.dest('./public/css'))
         .pipe(browserSync.reload({stream: true}))
         .pipe(notify({ title: 'Sass', message: 'public sass task complete'  }));
 });
@@ -139,7 +139,7 @@ gulp.task('sass-min-public', function() {
         .pipe(sass(options.sassmin).on('error', sass.logError))
         .pipe(autoprefixer())
         .pipe(rename( { suffix: '.min' } ) )
-        .pipe(gulp.dest('.'))
+        .pipe(gulp.dest('./public/css'))
         .pipe(browserSync.reload({stream: true}))
         .pipe(notify({ title: 'Sass', message: 'public sass-min task complete' }));
 });
@@ -150,7 +150,7 @@ gulp.task('sass-admin', function() {
         .pipe(plumber())
         .pipe(sass(options.sass).on('error', sass.logError))
         .pipe(autoprefixer())
-        .pipe(gulp.dest('.'))
+        .pipe(gulp.dest('./admin/css'))
         .pipe(browserSync.reload({stream: true}))
         .pipe(notify({ title: 'Sass', message: 'admin sass task complete'  }));
 });
@@ -162,7 +162,7 @@ gulp.task('sass-min-admin', function() {
         .pipe(sass(options.sassmin).on('error', sass.logError))
         .pipe(autoprefixer())
         .pipe(rename( { suffix: '.min' } ) )
-        .pipe(gulp.dest('.'))
+        .pipe(gulp.dest('./admin/css'))
         .pipe(browserSync.reload({stream: true}))
         .pipe(notify({ title: 'Sass', message: 'admin sass-min task complete' }));
 });
