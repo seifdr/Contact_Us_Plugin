@@ -73,7 +73,7 @@ class Wp_Contact_Us_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-contact-us-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-contact-us-admin.min.css', array(), $this->version, 'all' );
 
 	}
 
@@ -96,7 +96,7 @@ class Wp_Contact_Us_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-contact-us-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/dist/admin-scripts.min.js', array( 'jquery' ), $this->version, false );
 
 	}
 

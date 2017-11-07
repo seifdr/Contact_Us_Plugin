@@ -87,7 +87,7 @@ gulp.task( 'public_scripts', ['jshint'], function() {
   gulp.task( 'admin_scripts', ['jshint'], function() {
     return gulp.src( './admin-manifest.js' )
       .pipe( include() )
-      .pipe( rename( { basename: 'scripts' } ) )
+      .pipe( rename( { basename: 'admin-scripts' } ) )
       .pipe( gulp.dest( './admin/js/dist' ) )
       // Normal done, time to create the minified javascript (scripts.min.js)
       // remove the following 3 lines if you don't want it
