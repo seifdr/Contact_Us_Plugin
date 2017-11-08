@@ -208,9 +208,9 @@ gulp.task( 'watch', function() {
      // don't listen to whole js folder, it'll create an infinite loop
      gulp.watch( [ './admin/js/**/*.js', '!./admin/js/dist/*.js', './public/js/**/*.js', '!./public/js/dist/*.js' ], [ 'admin_scripts', 'public_scripts' ] )
     
-     gulp.watch( ['./admin/sass/**/**/**/*.scss'], ['sass-public', 'sass-public-min'] );
+     gulp.watch( ['./public/sass/**/**/**/*.scss'], ['sass-public', 'sass-min-public'] );
 
-     gulp.watch( ['./public/sass/**/**/**/*.scss'], ['sass-admin', 'sass-admin-min'] );
+     gulp.watch( ['./admin/sass/**/**/**/*.scss'], ['sass-admin', 'sass-min-admin'] );
    
      //gulp.watch( './images/**/*', ['images']);
     

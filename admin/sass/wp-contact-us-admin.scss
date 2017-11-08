@@ -1,7 +1,40 @@
-.yellowBorder {
-    border: 1px solid yellow;
+div.patellinis-contact-us-admin {
 
-    span {
-        border: 1px solid green;
+    width: 100%;
+    max-width: 500px;
+
+
+    fieldset.locations {
+
+        label {
+            width: 200px;
+            font-weight: bold;
+        }
+
+        .oneRow {
+
+        }
+
+        .twoRow {
+            display: flex;
+            flex-direction: row;
+            border: 1px solid red;
+
+            & > div {
+                flex: 2;
+                list-style-type:none;
+                border:1px solid black;
+            }
+
+            & > div.big {
+                flex-grow:1; 
+                border: 1px solid red;
+            }
+
+        }
+
+
+
+
     }
 }
