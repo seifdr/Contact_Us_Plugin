@@ -94,20 +94,20 @@ $states = array(
         <div class="locations">
             <div class="oneRow">
                 <label>Address Line 1:</label>
-                <input type="text" value="" />
+                <input type="text" value="" name="add1" />
             </div>
             <div class="oneRow">
                 <label>Address Line 2:</label>
-                <input type="text" value=""  />
+                <input type="text" value="" name="add2" />
             </div>
             <div class="twoRow">
                 <div>
                     <label>City:</label>
-                    <input type="text" value=""  /><br />
+                    <input type="text" value="" name="city" /><br />
                 </div>
                 <div>
                     <label>State:</label>
-                    <select>
+                    <select name="state">
                         <?php 
                             foreach ($states as $state) {
                                 echo '<option value="'. $state .'">'. $state .'</option>';
@@ -117,17 +117,30 @@ $states = array(
                 </div>
                 <div>
                     <label>Zip Code:</label>
-                    <input type="text" value=""  /><br />
+                    <input type="text" value="" name="zip" /><br />
                 </div>
             </div>
-    </div>
 
+        <br />
+        <h2>Phone and Email</h2>
+        <div class="oneRow">
+            <label>Phone:</label>
+            <input class="limited" type="text" value="" name="phone" />
+        </div>
+        <div class="oneRow">
+            <label>Email:</label>&nbsp;
+            <input class="limited" type="text" value="" name="email"  />
+        </div>       
 
+        <br />
         <h2>Hours</h2>
         <p>Hours will be centered when displayed on website.</p>
         <fieldset class="hours">
-            <textarea id="" name="" rows="5" class="large-text"></textarea><br>
+            <textarea id="" name="hours" rows="5" class="large-text"></textarea><br>
         </fieldset>
+    </div>                        
+
+
 
     <?php
         submit_button( 'Save Contact Information', 'primary', 'submit', true, null );
