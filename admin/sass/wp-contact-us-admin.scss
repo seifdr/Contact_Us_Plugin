@@ -1,34 +1,95 @@
+//wordpress breakpoint for xs 782
+$wp-xs: 782px;
+
+
 div.patellinis-contact-us-admin {
 
-    width: 100%;
-    max-width: 500px;
+    // width: 100%;
+    // max-width: 600px;
+    border: 1px solid blue;
 
 
-    fieldset.locations {
+    div.locations {
+
+        width: 100%;
+        position: relative;
+        border: 1px solid green;
 
         label {
-            width: 200px;
+            // width: 200px;
             font-weight: bold;
         }
 
         .oneRow {
+            width: 100%;
+            display: flex;
+            margin-top: .5em;
+
+            @media (max-width: $wp-xs) {
+                flex-direction: column;
+                margin-top: 1em;
+                
+            }
+
+            @media (min-width: $wp-xs) {
+                align-items: center;
+            }
+
+
+            label {
+                padding-right: 2em;
+                // flex: 1;
+            }
+
+            input {
+                flex-grow: 1;
+                // flex-grow: 2;
+            }
+
+
 
         }
 
         .twoRow {
             display: flex;
-            flex-direction: row;
-            border: 1px solid red;
+            flex-direction: column;
 
-            & > div {
-                flex: 2;
-                list-style-type:none;
-                border:1px solid black;
+            @media (max-width: $wp-xs) {
+
+                & > div {
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 1em;
+
+                    label {
+                        flex: 1;
+                        padding-right: 2em;
+                    }
+
+                    input {
+                        flex-grow: 2;
+                    }
+
+                }
             }
 
-            & > div.big {
-                flex-grow:1; 
-                border: 1px solid red;
+            //min-width is greater than 
+            //max-width is less than
+            @media (min-width: $wp-xs) {
+                flex-direction: row;
+
+                & > div {
+                    flex: 1;
+                    label, select, input { width: 100%; }
+                    margin-top: .5em;
+                    margin-right: 1em;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+
+
             }
 
         }

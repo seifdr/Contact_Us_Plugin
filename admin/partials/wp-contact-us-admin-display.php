@@ -15,45 +15,125 @@
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 
-<div class="wrap patellinis-contact-us-admin">
+<?php 
 
-	<h1><?php esc_attr_e( 'Contact Us', $this->plugin_name ); ?></h1>
-    <p>Add and edit contact information below. This information will be displayed within the site footer, and the 'Location and Hours' page (assuming a page of that name exisits).</p>
-    <br />
+$states = array(
+    'AL'=>'AL',
+    'AK'=>'AK',
+    'AS'=>'AS',
+    'AZ'=>'AZ',
+    'AR'=>'AR',
+    'CA'=>'CA',
+    'CO'=>'CO',
+    'CT'=>'CT',
+    'DE'=>'DE',
+    'DC'=>'DC',
+    'FM'=>'FM',
+    'FL'=>'FL',
+    'GA'=>'GA',
+    'GU'=>'GU',
+    'HI'=>'HI',
+    'ID'=>'ID',
+    'IL'=>'IL',
+    'IN'=>'IN',
+    'IA'=>'IA',
+    'KS'=>'KS',
+    'KY'=>'KY',
+    'LA'=>'LA',
+    'ME'=>'ME',
+    'MH'=>'MH',
+    'MD'=>'MD',
+    'MA'=>'MA',
+    'MI'=>'MI',
+    'MN'=>'MN',
+    'MS'=>'MS',
+    'MO'=>'MO',
+    'MT'=>'MT',
+    'NE'=>'NE',
+    'NV'=>'NV',
+    'NH'=>'NH',
+    'NJ'=>'NJ',
+    'NM'=>'NM',
+    'NY'=>'NY',
+    'NC'=>'NC',
+    'ND'=>'ND',
+    'MP'=>'MP',
+    'OH'=>'OH',
+    'OK'=>'OK',
+    'OR'=>'OR',
+    'PW'=>'PW',
+    'PA'=>'PA',
+    'PR'=>'PR',
+    'RI'=>'RI',
+    'SC'=>'SC',
+    'SD'=>'SD',
+    'TN'=>'TN',
+    'TX'=>'TX',
+    'UT'=>'UT',
+    'VT'=>'VT',
+    'VI'=>'VI',
+    'VA'=>'VA',
+    'WA'=>'WA',
+    'WV'=>'WV',
+    'WI'=>'WI',
+    'WY'=>'WY',
+    'AE'=>'AE',
+    'AA'=>'AA',
+    'AP'=>'AP'
+);
 
-    <h2>Locations</h2>
-    <fieldset class="locations">
-        <div class="oneRow">
-            <label>Address Line 1:</label>
-            <input type="text" value="This is what text looks like here…" class="regular-text" />
-        </div>
-        <div>
-            <label>Address Line 2:</label>
-            <input type="text" value="This is what text looks like here…" class="regular-text" />
-        </div>
-        <div class="twoRow">
-            <div>
-                <label>City:</label>
-                <input type="text" value="This is what text looks like here…" class="regular-text" /><br />
+?>
+
+<form method="POST" name="contact-us-inputs" action="./admin.php?page=wp-contact-us">
+    <div class="wrap patellinis-contact-us-admin">
+
+        <h1><?php esc_attr_e( 'Contact Us', $this->plugin_name ); ?></h1>
+        <p>Add and edit contact information below. This information will be displayed within the site footer, and the 'Location and Hours' page (assuming a page of that name exisits).</p>
+        <br />
+        <h2>Locations</h2>
+        <div class="locations">
+            <div class="oneRow">
+                <label>Address Line 1:</label>
+                <input type="text" value="" />
             </div>
-            <div class="big">
-                <label>State:</label>
-                <input type="text" value="This is what text looks like here…" class="regular-text" /><br />
+            <div class="oneRow">
+                <label>Address Line 2:</label>
+                <input type="text" value=""  />
             </div>
-            <div>
-                <label>Zip Code:</label>
-                <input type="text" value="This is what text looks like here…" class="regular-text" /><br />
+            <div class="twoRow">
+                <div>
+                    <label>City:</label>
+                    <input type="text" value=""  /><br />
+                </div>
+                <div>
+                    <label>State:</label>
+                    <select>
+                        <?php 
+                            foreach ($states as $state) {
+                                echo '<option value="'. $state .'">'. $state .'</option>';
+                            }
+                        ?>
+                    </select><br />
+                </div>
+                <div>
+                    <label>Zip Code:</label>
+                    <input type="text" value=""  /><br />
+                </div>
             </div>
-        </div>
-    </fieldset>
+    </div>
 
 
-    <h2>Hours</h2>
-    <fieldset class="hours">
-        <textarea id="" name="" rows="5" class="large-text">.large-text</textarea><br>
-    </fieldset>
+        <h2>Hours</h2>
+        <p>Hours will be centered when displayed on website.</p>
+        <fieldset class="hours">
+            <textarea id="" name="" rows="5" class="large-text"></textarea><br>
+        </fieldset>
 
-  
-		
+    <?php
+        submit_button( 'Save Contact Information', 'primary', 'submit', true, null );
+    ?>
     
-</div> <!-- .wrap -->
+            
+        
+    </div> <!-- .wrap -->
+</form>
