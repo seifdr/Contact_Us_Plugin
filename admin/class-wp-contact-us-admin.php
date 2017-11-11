@@ -152,6 +152,34 @@ class Wp_Contact_Us_Admin {
 	}
 	
 
+	/**
+	*
+	* registering our inputs in the options table
+	*
+	**/
+	public function options_update() {
+		register_setting($this->plugin_name, $this->plugin_name, array($this, 'validate'));
+	 }
 
+	/**
+	 * Validate the input on the contact us page, more like just sanitize
+	 */
+	public function validate($input) {
+
+		var_dump( $input );
+
+		// All checkboxes inputs        
+		$valid = array();
+	
+		//Cleanup
+		$valid['cleanup'] = (isset($input['cleanup']) && !empty($input['cleanup'])) ? 1 : 0;
+		$valid['comments_css_cleanup'] = (isset($input['comments_css_cleanup']) && !empty($input['comments_css_cleanup'])) ? 1: 0;
+		$valid['gallery_css_cleanup'] = (isset($input['gallery_css_cleanup']) && !empty($input['gallery_css_cleanup'])) ? 1 : 0;
+		$valid['body_class_slug'] = (isset($input['body_class_slug']) && !empty($input['body_class_slug'])) ? 1 : 0;
+		$valid['jquery_cdn'] = (isset($input['jquery_cdn']) && !empty($input['jquery_cdn'])) ? 1 : 0;
+		$valid['cdn_provider'] = esc_url($input['cdn_provider']);
+	
+		return $valid;
+	 }
 
 }

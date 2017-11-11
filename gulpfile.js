@@ -28,6 +28,8 @@ var browserSyncWatchFiles = [
 // see: https://www.browsersync.io/docs/options/
 var browserSyncOptions = {
     watchTask: true,
+    // Open the site in Chrome
+    browser: "firefox",
     proxy: "http://localhost/patellinis-new/"
 }
 

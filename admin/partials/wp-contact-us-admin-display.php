@@ -15,138 +15,38 @@
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 
-<?php 
+<div class="wrap">
 
-$states = array(
-    'AL'=>'AL',
-    'AK'=>'AK',
-    'AS'=>'AS',
-    'AZ'=>'AZ',
-    'AR'=>'AR',
-    'CA'=>'CA',
-    'CO'=>'CO',
-    'CT'=>'CT',
-    'DE'=>'DE',
-    'DC'=>'DC',
-    'FM'=>'FM',
-    'FL'=>'FL',
-    'GA'=>'GA',
-    'GU'=>'GU',
-    'HI'=>'HI',
-    'ID'=>'ID',
-    'IL'=>'IL',
-    'IN'=>'IN',
-    'IA'=>'IA',
-    'KS'=>'KS',
-    'KY'=>'KY',
-    'LA'=>'LA',
-    'ME'=>'ME',
-    'MH'=>'MH',
-    'MD'=>'MD',
-    'MA'=>'MA',
-    'MI'=>'MI',
-    'MN'=>'MN',
-    'MS'=>'MS',
-    'MO'=>'MO',
-    'MT'=>'MT',
-    'NE'=>'NE',
-    'NV'=>'NV',
-    'NH'=>'NH',
-    'NJ'=>'NJ',
-    'NM'=>'NM',
-    'NY'=>'NY',
-    'NC'=>'NC',
-    'ND'=>'ND',
-    'MP'=>'MP',
-    'OH'=>'OH',
-    'OK'=>'OK',
-    'OR'=>'OR',
-    'PW'=>'PW',
-    'PA'=>'PA',
-    'PR'=>'PR',
-    'RI'=>'RI',
-    'SC'=>'SC',
-    'SD'=>'SD',
-    'TN'=>'TN',
-    'TX'=>'TX',
-    'UT'=>'UT',
-    'VT'=>'VT',
-    'VI'=>'VI',
-    'VA'=>'VA',
-    'WA'=>'WA',
-    'WV'=>'WV',
-    'WI'=>'WI',
-    'WY'=>'WY',
-    'AE'=>'AE',
-    'AA'=>'AA',
-    'AP'=>'AP'
-);
+    <h2><?php echo esc_html(get_admin_page_title()); ?></h2>
 
-?>
+    <form method="post" name="cleanup_options" action="options.php">
 
-<form method="POST" name="contact-us-inputs" action="./admin.php?page=wp-contact-us">
-    <div class="wrap patellinis-contact-us-admin">
-
-        <h1><?php esc_attr_e( 'Contact Us', $this->plugin_name ); ?></h1>
-        <p>Add and edit contact information below. This information will be displayed within the site footer, and the 'Location and Hours' page (assuming a page of that name exisits).</p>
-        <br />
-        <h2>Locations</h2>
-        <div class="locations">
-            <div class="oneRow">
-                <label>Address Line 1:</label>
-                <input type="text" value="" name="add1" />
-            </div>
-            <div class="oneRow">
-                <label>Address Line 2:</label>
-                <input type="text" value="" name="add2" />
-            </div>
-            <div class="twoRow">
-                <div>
-                    <label>City:</label>
-                    <input type="text" value="" name="city" /><br />
-                </div>
-                <div>
-                    <label>State:</label>
-                    <select name="state">
-                        <?php 
-                            foreach ($states as $state) {
-                                echo '<option value="'. $state .'">'. $state .'</option>';
-                            }
-                        ?>
-                    </select><br />
-                </div>
-                <div>
-                    <label>Zip Code:</label>
-                    <input type="text" value="" name="zip" /><br />
-                </div>
-            </div>
-
-        <br />
-        <h2>Phone and Email</h2>
-        <div class="oneRow">
-            <label>Phone:</label>
-            <input class="limited" type="text" value="" name="phone" />
-        </div>
-        <div class="oneRow">
-            <label>Email:</label>&nbsp;
-            <input class="limited" type="text" value="" name="email"  />
-        </div>       
-
-        <br />
-        <h2>Hours</h2>
-        <p>Hours will be centered when displayed on website.</p>
-        <fieldset class="hours">
-            <textarea id="" name="hours" rows="5" class="large-text"></textarea><br>
-        </fieldset>
-    </div>                        
-
-
-
-    <?php
-        submit_button( 'Save Contact Information', 'primary', 'submit', true, null );
-    ?>
-    
+        <?php 
             
+            settings_fields($this->plugin_name); 
         
-    </div> <!-- .wrap -->
-</form>
+            //Grab all options
+            $options = get_option($this->plugin_name);
+        
+            var_dump( $options );
+        ?>
+
+        <!-- load jQuery from CDN -->
+        <fieldset>
+            <legend class="screen-reader-text"><span><?php _e('Load jQuery from CDN instead of the basic wordpress script', $this->plugin_name); ?></span></legend>
+            <label for="<?php echo $this->plugin_name; ?>-jquery_cdn">
+                <input type="checkbox" id="<?php echo $this->plugin_name; ?>-jquery_cdn" name="<?php echo $this->plugin_name; ?>[jquery_cdn]" value="1" />
+                <span><?php esc_attr_e('Load jQuery from CDN', $this->plugin_name); ?></span>
+            </label>
+                    <fieldset>
+                        <p>You can choose your own cdn provider and jQuery version(default will be Google Cdn and version 1.11.1)-Recommended CDN are <a href="https://cdnjs.com/libraries/jquery">CDNjs</a>, <a href="https://code.jquery.com/jquery/">jQuery official CDN</a>, <a href="https://developers.google.com/speed/libraries/#jquery">Google CDN</a> and <a href="http://www.asp.net/ajax/cdn#jQuery_Releases_on_the_CDN_0">Microsoft CDN</a></p>
+                        <legend class="screen-reader-text"><span><?php _e('Choose your prefered cdn provider', $this->plugin_name); ?></span></legend>
+                        <input type="url" class="regular-text" id="<?php echo $this->plugin_name; ?>-cdn_provider" name="<?php echo $this->plugin_name; ?>[cdn_provider]" value=""/>
+                    </fieldset>
+        </fieldset>
+
+        <?php submit_button('Save all changes', 'primary','submit', TRUE); ?>
+
+    </form>
+
+</div>

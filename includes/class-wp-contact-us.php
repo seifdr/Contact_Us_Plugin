@@ -157,6 +157,9 @@ class Wp_Contact_Us {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
+		// Save/Update our plugin options
+		$this->loader->add_action('admin_init', $plugin_admin, 'options_update');
+
 		/**
 		 * PATELLINIS SPECIFIC HOOKS
 		 */
